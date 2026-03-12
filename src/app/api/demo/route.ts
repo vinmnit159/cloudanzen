@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY ?? "placeholder");
 
@@ -17,7 +19,7 @@ export async function POST(req: NextRequest) {
     }
 
     const { error } = await resend.emails.send({
-      from: "CloudAnzen Demo <noreply@cloudanzen.com>",
+      from: "CloudAnzen Demo <onboarding@resend.dev>",
       to: ["vineet@cloudanzen.com"],
       replyTo: email,
       subject: `New demo request from ${firstName} ${lastName} — ${company}`,
