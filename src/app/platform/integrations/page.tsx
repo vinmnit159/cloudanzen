@@ -1,0 +1,60 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import PageHero from "@/components/PageHero";
+import { ArrowRight, Plug2 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Integrations",
+  description: "Connect CloudAnzen to 100+ cloud, identity, HRIS, ticketing, and collaboration tools to collect evidence automatically.",
+};
+
+const categories = [
+  { cat: "Cloud Infrastructure", color: "bg-blue-50 border-blue-200", items: ["Amazon Web Services", "Google Cloud Platform", "Microsoft Azure", "DigitalOcean", "Heroku"] },
+  { cat: "Identity & SSO", color: "bg-teal-50 border-teal-200", items: ["Okta", "Google Workspace", "Microsoft Entra ID", "JumpCloud", "OneLogin"] },
+  { cat: "Source Control", color: "bg-indigo-50 border-indigo-200", items: ["GitHub", "GitLab", "Bitbucket", "Azure DevOps"] },
+  { cat: "HRIS", color: "bg-violet-50 border-violet-200", items: ["BambooHR", "HiBob", "Rippling", "Workday", "Gusto"] },
+  { cat: "Ticketing", color: "bg-sky-50 border-sky-200", items: ["Jira", "Linear", "ServiceNow", "Asana", "GitHub Issues"] },
+  { cat: "Collaboration", color: "bg-emerald-50 border-emerald-200", items: ["Slack", "Microsoft Teams", "Google Chat"] },
+  { cat: "Endpoint & MDM", color: "bg-orange-50 border-orange-200", items: ["Jamf", "Kandji", "CrowdStrike", "SentinelOne"] },
+  { cat: "Vulnerability & EDR", color: "bg-red-50 border-red-200", items: ["Snyk", "Tenable", "Qualys", "Wiz", "Lacework"] },
+];
+
+export default function IntegrationsPage() {
+  return (
+    <div>
+      <PageHero
+        badge="Platform · Integrations"
+        title="Connect the systems"
+        titleHighlight="your controls depend on"
+        subtitle="CloudAnzen pulls evidence automatically from 100+ tools so your controls are always up to date and your audit package is never stale."
+        ctaPrimary={{ label: "Book a demo", href: "/demo" }}
+      />
+      <section className="section-pad bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-16">
+            {categories.map(({ cat, color, items }) => (
+              <div key={cat} className={`rounded-2xl border p-6 ${color}`}>
+                <div className="flex items-center gap-2 mb-4">
+                  <Plug2 className="w-4 h-4 text-slate-600" />
+                  <p className="text-xs font-semibold text-slate-600 uppercase tracking-wider">{cat}</p>
+                </div>
+                <ul className="space-y-1.5">
+                  {items.map((item) => (
+                    <li key={item} className="text-sm text-slate-700 font-medium">{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-3xl bg-slate-900 p-10 text-center">
+            <h2 className="text-2xl font-bold text-white mb-4">Don&apos;t see your tool?</h2>
+            <p className="text-slate-400 mb-8">CloudAnzen supports custom integrations via API and webhooks. Talk to our team to discuss your stack.</p>
+            <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-500 transition-colors">
+              Contact us <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
