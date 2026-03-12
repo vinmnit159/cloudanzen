@@ -19,7 +19,7 @@ export default function ContactPage() {
           <div className="space-y-6">
             {[
               { icon: Mail, title: "Email us", value: "hello@cloudanzen.com" },
-              { icon: MapPin, title: "Headquarters", value: "San Francisco, CA, USA" },
+              { icon: MapPin, title: "Headquarters", value: "2-18-6-608 Shiohama, Tokyo, Japan" },
               { icon: Clock, title: "Response time", value: "Within 1 business day" },
             ].map(({ icon: Icon, title, value }) => (
               <div key={title} className="flex gap-4">
