@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-import { Shield, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About CloudAnzen",
@@ -41,7 +41,19 @@ export default function AboutPage() {
 
           <div className="bg-slate-900 rounded-3xl p-10 text-center">
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-teal-500 flex items-center justify-center mx-auto mb-6">
-              <Shield className="w-6 h-6 text-white" />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7 text-white">
+                <path d="M15 50 Q50 8 85 50" />
+                <path d="M85 50 Q50 92 15 50" />
+                <line x1="26" y1="24" x2="20" y2="18" />
+                <line x1="74" y1="24" x2="80" y2="18" />
+                <line x1="26" y1="76" x2="20" y2="82" />
+                <line x1="74" y1="76" x2="80" y2="82" />
+                <path d="M25 50 Q50 18 75 50 Q50 82 25 50 Z" />
+                <circle cx="50" cy="50" r="16" />
+                <path d="M50 34 Q66 34 66 50 Q66 62 56 67" />
+                <circle cx="50" cy="50" r="6.5" />
+                <path d="M38 60 Q50 70 62 60" />
+              </svg>
             </div>
             <h2 className="text-2xl font-bold text-white mb-4">Join our team</h2>
             <p className="text-slate-400 mb-8">We&apos;re hiring engineers, GRC experts, and go-to-market talent who want to build the future of compliance automation.</p>
